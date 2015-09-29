@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,CAAE;EACD,MAAM,EAAC,CAAC;EACR,OAAO,EAAC,CAAC;;ACWV,UAAO;EACN,MAAM,EAAC,aAAa;;ACPrB,IAAK;EACJ,UAAU,EAJJ,IAAI;EAKV,IAAI,EANC,YAAY;;AASlB,EAAG;EACF,KAAK,EDbQ,KAAK;EAGjB,qBAAqB,ECWC,IAAI;EDVvB,kBAAkB,ECUC,IAAI;EDTtB,iBAAiB,ECSC,IAAI;EDRlB,aAAa,ECQC,IAAI;EDJ3B,UAAU,ECKU,OAAO;EAE3B,YAAY,EAAC,IAAI",
+"sources": ["../../../../../../Andr%C3%A9/Desktop/ajax/sass/css/sass/partials/_reset.scss","../../../../../../Andr%C3%A9/Desktop/ajax/sass/css/sass/estilo2.scss","../../../../../../Andr%C3%A9/Desktop/ajax/sass/css/sass/estilo.scss"],
+"names": [],
+"file": "estilo.css"
+}

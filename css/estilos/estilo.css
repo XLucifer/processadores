@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.borda, h1 {
+  border: 1px solid red; }
+
+body {
+  background: #000;
+  font: 12px "arial"; }
+
+h1 {
+  color: "red";
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  background: #ffff00;
+  border-color: blue; }
+
+/*# sourceMappingURL=estilo.css.map */

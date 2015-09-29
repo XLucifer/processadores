@@ -1,0 +1,21 @@
+Encoding.default_external = "UTF-8"
+
+@import "partials/_reset";
+@import "estilo2";
+
+$font:12px "arial";
+$corpo:#000;
+
+
+body {
+	background: $corpo;
+	font:$font;
+}
+
+h1 {
+	color:$titulo-color;
+	@include border-radius(10px);
+	@include background(#ffff00);
+	@extend .borda;
+	border-color:blue;
+}
