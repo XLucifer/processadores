@@ -30,6 +30,7 @@
 	<link rel="stylesheet" href="css/estilos/estilo.css">
 
 	<style>
+		body {background: #1c1e22;}
 		.selecionado {
 			font-weight: bold;
 			color:red;
@@ -41,7 +42,7 @@
 		<section class="container">
 			<table class="table table-striped text-center">
 				<tr>
-					<th class="text-center">Nome</th>
+					<th colspan="2" class="text-center">Nome</th>
 					<th class="text-center">Telefone</th>
 				</tr>
 				<tr ng-repeat="c in contatos" ng-class="{selecionado:contato.selecionado}">
