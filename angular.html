@@ -21,6 +21,26 @@
     			$scope.contatos.push(angular.copy(contato));
     			delete $scope.contato;
     		};
+
+    		$scope.del = function(contatos){
+    			$scope.contatos = contatos.filter(function(contato){
+    				if(!contato.selecionado) return contato;
+    			});
+
+    		};
+
+    		$scope.isContatoSelecionado = function(contatos){
+    			return contatos.some(function(contato){
+    				return contato.selecionado;
+    			});    			
+    		};
+
+    		$scope.operadoras = [
+    			{nome:"oi",numero:"14",categoria:"celular"},
+    			{nome:"vivo",numero:"15",categoria:"celular"},
+    			{nome:"claro",numero:"16",categoria:"fixo"},
+    			{nome:"tim",numero:"17",categoria:"fixo"}
+    		];
     	});
     </script>
 	
@@ -33,25 +53,31 @@
 		body {background: #1c1e22;}
 		.selecionado {
 			font-weight: bold;
-			color:red;
+			color:#fff;
+			background: orange;
 		}
 	</style>
 </head>
 <body>
 	<div class="jumbotron" ng-controller="testeCtrl">
 		<section class="container">
-			<table class="table table-striped text-center">
+			<table class="table  text-center" ng-show="contatos.length > 0">
 				<tr>
-					<th colspan="2" class="text-center">Nome</th>
+					<th></th>
+					<th class="text-center">Nome</th>
 					<th class="text-center">Telefone</th>
+					<th class="text-center">Operadora</th>
 				</tr>
-				<tr ng-repeat="c in contatos" ng-class="{selecionado:contato.selecionado}">
-					<td><input type="checkbox" ng-model="contato.selecionado"></td>
+				<tr ng-repeat="c in contatos" ng-class="{selecionado:c.selecionado}">
+					<td><input type="checkbox" ng-model="c.selecionado"></td>
 					<td>
 						{{c.nome}}
 					</td>
 					<td>
 						{{c.telefone}}
+					</td>
+					<td>
+						{{c.operadora.nome}}
 					</td>
 				</tr>
 			</table>
@@ -59,7 +85,7 @@
 			<hr>
 			
 			<div class="well">
-				<form action=""  class="form-horizontal">
+				<form action="" class="form-horizontal">
 					<fieldset>
 						<div>
 							<input ng-model="contato.nome" type="text" class="form-control" placeholder="Nome:">
@@ -72,12 +98,28 @@
 						<br>
 
 						<div>
+							<select ng-model="contato.operadora" ng-options="operadora.nome group by operadora.categoria for operadora in operadoras" name="" id="" class="form-control">
+								<option value="" selected>Selecione uma operadora</option>
+							</select>
+							
+						</div>
+
+						<br>
+
+						<div>
 							<button type="button" class="btn btn-default btn-block" ng-click="add(contato)" ng-disabled="!(contato.nome && contato.telefone)">Adicione</button>
 						</div>
+						<br>
+						<div>
+							<button type="button" class="btn btn-danger btn-block" ng-show="isContatoSelecionado(contatos)" ng-click="del(contatos)">Apagar contatos</button>
+						</div>
+
 						
 					</fieldset>
 				</form>
 			</div>
+
+			<footer ng-include="'footer.html'"></footer>
 			
 		</section>
 		
